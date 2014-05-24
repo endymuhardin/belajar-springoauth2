@@ -12,7 +12,7 @@ public class DispatcherServletConfig implements WebApplicationInitializer {
     public void onStartup(ServletContext sc) throws ServletException {
         AnnotationConfigWebApplicationContext context
                 = new AnnotationConfigWebApplicationContext();
-        context.register(AppConfig.class);
+        context.scan("com.muhardin.endy.belajar.springoauth2");
         
         ServletRegistration.Dynamic registration = sc.addServlet("dispatcher", new DispatcherServlet(context));
         registration.setLoadOnStartup(1);
