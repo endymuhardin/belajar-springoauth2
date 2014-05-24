@@ -13,6 +13,23 @@ public class HaloController {
     public Map<String, Object> halo(){
         Map<String, Object> hasil = new HashMap<String, Object>();
         hasil.put("sukses", Boolean.TRUE);
+        hasil.put("page", "halo");
+        return hasil;
+    }
+    
+    @RequestMapping("/admin")
+    public Map<String, Object> admin(){
+        Map<String, Object> hasil = new HashMap<String, Object>();
+        hasil.put("sukses", Boolean.TRUE);
+        hasil.put("page", "admin");
+        return hasil;
+    }
+    
+    @RequestMapping("/staff")
+    public Map<String, Object> staff(){
+        Map<String, Object> hasil = new HashMap<String, Object>();
+        hasil.put("sukses", Boolean.TRUE);
+        hasil.put("page", "staff");
         return hasil;
     }
 }
