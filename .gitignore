@@ -1,2 +1,5 @@
 # Maven Ignore
 target
+
+# Bower Ignore
+bower_components

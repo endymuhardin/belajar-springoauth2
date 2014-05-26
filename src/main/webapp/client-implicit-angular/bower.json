@@ -1,0 +1,26 @@
+{
+  "name": "client-implicit-angular",
+  "version": "0.0.0",
+  "authors": [
+    "Endy Muhardin <endy.muhardin@gmail.com>"
+  ],
+  "description": "OAuth 2 Client dengan Grant Type Implicit menggunakan AngularJS",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/endymuhardin/belajar-springoauth2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "angular": "~1.2.16"
+  }
+}
