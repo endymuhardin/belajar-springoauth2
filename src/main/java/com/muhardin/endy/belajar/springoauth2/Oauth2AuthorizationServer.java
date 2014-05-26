@@ -56,6 +56,7 @@ public class Oauth2AuthorizationServer {
                     .scopes("read", "write")
                     .resourceIds(RESOURCE_ID)
                     .redirectUris("http://localhost:8080/belajar-spring-oauth2/api/state/verify")
+                    .accessTokenValiditySeconds(60 * 60 * 24) // token berlaku seharian, besok harus login ulang
                     .autoApprove(true);
         }
 
