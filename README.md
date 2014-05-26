@@ -73,6 +73,11 @@ User yang tersedia :
 * https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/
 * https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/
 * https://developers.google.com/accounts/docs/OAuth2UserAgent
+* http://techblog.hybris.com/2012/06/01/oauth2-authorization-code-flow/
+* http://techblog.hybris.com/2012/06/05/oauth2-refreshing-an-expired-access-token/
+* http://techblog.hybris.com/2012/06/05/oauth2-the-implicit-flow-aka-as-the-client-side-flow/
+* http://techblog.hybris.com/2012/06/11/oauth2-resource-owner-password-flow/
+* http://techblog.hybris.com/2012/07/09/oauth-the-client-credentials-flow/
 * http://techblog.hybris.com/2012/08/10/oauth2-server-side-implementation-using-spring-security-oauth2-module/
 * http://projects.spring.io/spring-security-oauth/docs/oauth2.html
 * https://github.com/royclarkson/spring-rest-service-oauth
