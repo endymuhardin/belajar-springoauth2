@@ -49,7 +49,14 @@ public class Oauth2AuthorizationServer {
                     .authorizedGrantTypes("password")
                     .scopes("read", "write")
                     .resourceIds(RESOURCE_ID)
-                    .secret("123456");
+                    .secret("123456")
+                    .and()
+                    .withClient("jsclient")
+                    .authorizedGrantTypes("implicit")
+                    .scopes("read", "write")
+                    .resourceIds(RESOURCE_ID)
+                    .redirectUris("http://localhost:8080/belajar-spring-oauth2/api/state/verify")
+                    .autoApprove(true);
         }
 
     }
@@ -61,6 +68,7 @@ public class Oauth2AuthorizationServer {
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
                     .antMatchers("/api/halo").permitAll()
+                    .antMatchers("/api/state/**").permitAll()
                     .and().anonymous();
         }
         
@@ -81,7 +89,8 @@ public class Oauth2AuthorizationServer {
         public void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
                     .antMatchers("/api/staff").hasRole("STAFF")
-                    .antMatchers("/api/admin").hasRole("ADMIN");
+                    .antMatchers("/api/admin").hasRole("ADMIN")
+                    .and().formLogin();
         }
 
     }
