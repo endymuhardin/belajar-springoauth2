@@ -3,8 +3,10 @@ package com.muhardin.endy.belajar.springoauth2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -51,6 +53,18 @@ public class Oauth2AuthorizationServer {
         }
 
     }
+    
+    @Configuration @Order(10)
+    protected static class NonOauthResources extends WebSecurityConfigurerAdapter {
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http.authorizeRequests()
+                    .antMatchers("/api/halo").permitAll()
+                    .and().anonymous();
+        }
+        
+    }
 
     @Configuration
     @EnableResourceServer
@@ -66,10 +80,8 @@ public class Oauth2AuthorizationServer {
         @Override
         public void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                    .antMatchers("/api/halo").permitAll()
                     .antMatchers("/api/staff").hasRole("STAFF")
-                    .antMatchers("/api/admin").hasRole("ADMIN")
-                    .anyRequest().authenticated();
+                    .antMatchers("/api/admin").hasRole("ADMIN");
         }
 
     }
