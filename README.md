@@ -76,3 +76,4 @@ User yang tersedia :
 * http://techblog.hybris.com/2012/08/10/oauth2-server-side-implementation-using-spring-security-oauth2-module/
 * http://projects.spring.io/spring-security-oauth/docs/oauth2.html
 * https://github.com/royclarkson/spring-rest-service-oauth
+* http://spring.io/blog/2011/11/30/cross-site-request-forgery-and-oauth2
