@@ -45,7 +45,6 @@ public class Oauth2AuthorizationServer {
                     .inMemory()
                     .withClient("clientapp")
                     .authorizedGrantTypes("password")
-                    .authorities("STAFF", "ADMIN")
                     .scopes("read", "write")
                     .resourceIds(RESOURCE_ID)
                     .secret("123456");
