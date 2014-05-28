@@ -13,10 +13,11 @@ and open the template in the editor.
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/app.css">
     </head>
-    <body>
+    
+    <body ng-app="aplikasiOauthClient">
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
+            <div class="container" ng-controller="NavCtrl">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -30,7 +31,7 @@ and open the template in the editor.
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" ng-click="login()">Login</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -63,11 +64,26 @@ and open the template in the editor.
                     <a class="btn btn-lg btn-primary" href="https://github.com/endymuhardin/belajar-springoauth2" role="button">Source Code @ Github &raquo;</a>
                 </p>
             </div>
+            
+            <div ng-controller="OauthCtrl">
+                <b>User : {{currentUser}}</b>
+                <hr>
+                <button class="btn btn-danger" ng-click="adminApi()">Klik untuk mengakses API Admin</button>
+                <br>
+                <br>
+                Output : {{adminOutput}}
+                <hr>
+                <button class="btn btn-warning" ng-click="staffApi()">Klik untuk mengakses API Staff</button>
+                <br>
+                <br>
+                Output : {{staffOutput}}
+            </div>
 
         </div> <!-- /container -->
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bower_components/angular/angular.js"></script>
+        
+        <script src="js/app.js"></script>
     </body>
 </html>
