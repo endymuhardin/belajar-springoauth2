@@ -69,10 +69,9 @@ User yang tersedia :
 
 ## Referensi ##
 
+Server Side
+
 * http://tools.ietf.org/id/draft-ietf-oauth-v2-31.html
-* https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/
-* https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/
-* https://developers.google.com/accounts/docs/OAuth2UserAgent
 * http://techblog.hybris.com/2012/06/01/oauth2-authorization-code-flow/
 * http://techblog.hybris.com/2012/06/05/oauth2-refreshing-an-expired-access-token/
 * http://techblog.hybris.com/2012/06/05/oauth2-the-implicit-flow-aka-as-the-client-side-flow/
@@ -82,3 +81,12 @@ User yang tersedia :
 * http://projects.spring.io/spring-security-oauth/docs/oauth2.html
 * https://github.com/royclarkson/spring-rest-service-oauth
 * http://spring.io/blog/2011/11/30/cross-site-request-forgery-and-oauth2
+
+Client Side
+
+* http://www.frederiknakstad.com/2014/02/09/ui-router-in-angular-client-side-auth/
+* http://nils-blum-oeste.net/cors-api-with-oauth2-authentication-using-rails-and-angularjs/
+* https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/
+* https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/
+* https://developers.google.com/accounts/docs/OAuth2UserAgent
+* http://beletsky.net/2013/11/simple-authentication-in-angular-dot-js-app.html
