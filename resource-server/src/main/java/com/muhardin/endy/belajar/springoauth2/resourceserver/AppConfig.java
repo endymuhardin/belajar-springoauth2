@@ -1,4 +1,4 @@
-package com.muhardin.endy.belajar.springoauth2;
+package com.muhardin.endy.belajar.springoauth2.resourceserver;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

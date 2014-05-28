@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.muhardin.endy.belajar.springoauth2</groupId>
-    <artifactId>auth-server</artifactId>
+    <artifactId>resource-server</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>auth-server</name>
+    <name>resource-server</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -83,7 +83,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.0</version>
                 <configuration>
-                    <port>10000</port>
+                    <port>10001</port>
                 </configuration>
             </plugin>
         </plugins>

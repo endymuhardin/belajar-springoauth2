@@ -66,6 +66,10 @@
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
                 <input type="hidden" name="spring-security-redirect" value="http://google.com">
+                <input type="hidden"
+                       name="${_csrf.parameterName}"
+                       value="${_csrf.token}"/>
+
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </form>
 

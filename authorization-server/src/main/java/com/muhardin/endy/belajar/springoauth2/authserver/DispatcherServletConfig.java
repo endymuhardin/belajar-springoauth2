@@ -1,4 +1,4 @@
-package com.muhardin.endy.belajar.springoauth2;
+package com.muhardin.endy.belajar.springoauth2.authserver;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

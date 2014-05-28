@@ -1,11 +1,10 @@
 package com.muhardin.endy.belajar.springoauth2.controller;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import javax.servlet.http.HttpSession;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,11 +22,11 @@ public class HaloController {
     }
     
     @RequestMapping("/admin")
-    public Map<String, Object> admin(@AuthenticationPrincipal User user){
+    public Map<String, Object> admin(Principal user){
         Map<String, Object> hasil = new HashMap<String, Object>();
         hasil.put("sukses", Boolean.TRUE);
         hasil.put("page", "admin");
-        hasil.put("user", user.getUsername());
+        hasil.put("user", user.getName());
         return hasil;
     }
     
