@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.muhardin.endy.belajar.springoauth2</groupId>
-    <artifactId>belajar-spring-oauth2</artifactId>
+    <artifactId>auth-server</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>belajar-spring-oauth2</name>
+    <name>auth-server</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -27,6 +27,13 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
+        </dependency>
       
         <dependency>
             <groupId>junit</groupId>
@@ -34,7 +41,6 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-        
     </dependencies>
     
     <build>

@@ -70,6 +70,7 @@ public class Oauth2AuthorizationServer {
             http.authorizeRequests()
                     .antMatchers("/api/halo").permitAll()
                     .antMatchers("/api/state/**").permitAll()
+                    .antMatchers("/**").permitAll()
                     .and().anonymous();
         }
         
@@ -91,7 +92,13 @@ public class Oauth2AuthorizationServer {
             http.authorizeRequests()
                     .antMatchers("/api/staff").hasRole("STAFF")
                     .antMatchers("/api/admin").hasRole("ADMIN")
-                    .and().formLogin();
+                    .and()
+                    .formLogin()
+                    .loginPage("/login.jsp")
+                    .loginProcessingUrl("/j_spring_security_check")
+                    .usernameParameter("j_username")
+                    .passwordParameter("j_password")
+                    .and().logout().logoutUrl("j_spring_security_logout");
         }
 
     }
