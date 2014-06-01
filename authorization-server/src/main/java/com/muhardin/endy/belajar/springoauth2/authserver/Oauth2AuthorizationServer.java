@@ -42,6 +42,12 @@ public class Oauth2AuthorizationServer {
         public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
             clients
                     .inMemory()
+                    .withClient("clientauthcode")
+                    .resourceIds(RESOURCE_ID)
+                    .authorizedGrantTypes("authorization_code")
+                    .secret("123456")
+                    .scopes("read", "write")
+                    .and()
                     .withClient("clientapp")
                     .authorizedGrantTypes("password")
                     .scopes("read", "write")

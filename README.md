@@ -88,6 +88,42 @@ Aplikasi `implicit-client` bisa dijalankan dengan cara sebagai berikut:
 
 Berikut beberapa contoh skenario dalam OAuth.
 
+### Authorization Code ###
+
+* Jalankan aplikasi `authorization-server` dan `resource-server`
+* Buka browser, arahkan ke 
+
+        http://localhost:10000/auth-server/oauth/authorize?client_id=clientauthcode&response_type=code&redirect_uri=http://localhost:10001/resource-server/api/state/new
+
+* Kita akan diminta login dan kemudian melakukan otorisasi. Setelah login, kita akan disajikan halaman otorisasi, pilih radio button Approve kemudian klik tombol `Authorize`.
+
+* Kita akan diredirect ke url yang kita sebutkan pada variabel `redirect_uri` di langkah kedua di atas dengan ditambahi parameter authorization code. URL hasil redirectnya seperti ini:
+
+        http://localhost:10001/resource-server/api/state/new?code=8OppiR
+
+    Ambil kodenya, yaitu `8OppiR`, untuk digunakan pada langkah selanjutnya.
+
+* Lakukan request dari aplikasi client untuk menukar authorization code dengan access token. Sebagai contoh, kita akan gunakan aplikasi commandline `curl`. Berikut perintahnya
+
+        curl -X POST -vu clientauthcode:123456 http://localhost:10000/auth-server/oauth/token -H "Accept: application/json" -d "grant_type=authorization_code&code=iMAtdP&redirect_uri=http://localhost:10001/resource-server/api/state/new"
+
+* Kita akan diberikan access token dalam response JSON seperti ini
+
+        {
+            "access_token":"08664d93-41e3-473c-b5d2-f2b30afe7053",
+            "token_type":"bearer",
+            "expires_in":43199,
+            "scope":"write read"
+        }
+
+* Access token tersebut bisa digunakan aplikasi client untuk mengakses resource terproteksi seperti ini
+
+        curl http://localhost:10001/resource-server/api/admin?access_token=08664d93-41e3-473c-b5d2-f2b30afe7053
+
+* Resource server akan memberikan data yang diminta karena tokennya cocok
+
+        {"sukses":true,"page":"admin","user":"endy"}
+
 ### Flow Grant Type User Password ##
 
 * Jalankan Aplikasi : `mvn clean tomcat7:run`
