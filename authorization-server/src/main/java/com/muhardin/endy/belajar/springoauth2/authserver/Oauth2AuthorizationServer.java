@@ -44,7 +44,7 @@ public class Oauth2AuthorizationServer {
                     .inMemory()
                     .withClient("clientauthcode")
                     .resourceIds(RESOURCE_ID)
-                    .authorizedGrantTypes("authorization_code")
+                    .authorizedGrantTypes("authorization_code", "refresh_token")
                     .secret("123456")
                     .scopes("read", "write")
                     .and()

@@ -112,6 +112,7 @@ Berikut beberapa contoh skenario dalam OAuth.
         {
             "access_token":"08664d93-41e3-473c-b5d2-f2b30afe7053",
             "token_type":"bearer",
+            "refresh_token":"436761f1-2f26-412b-ab0f-bbf2cd7459c4",
             "expires_in":43199,
             "scope":"write read"
         }
@@ -123,6 +124,19 @@ Berikut beberapa contoh skenario dalam OAuth.
 * Resource server akan memberikan data yang diminta karena tokennya cocok
 
         {"sukses":true,"page":"admin","user":"endy"}
+
+* Bila access token expire, kita bisa meminta refresh token sebagai berikut
+
+        curl -X POST -vu clientauthcode:123456 http://localhost:10000/auth-server/oauth/token -d "client_id=clientauthcode&grant_type=refresh_token&refresh_token=436761f1-2f26-412b-ab0f-bbf2cd7459c4"
+
+* Authorization server akan memberikan respon access token dan refresh token yang baru
+
+        {
+            "access_token":"e425cee6-7167-4eea-91c3-2706d01dab7f",
+            "token_type":"bearer",
+            "refresh_token":"436761f1-2f26-412b-ab0f-bbf2cd7459c4",
+            "expires_in":43199,"scope":"write read"
+        }
 
 ### Flow Grant Type User Password ##
 
