@@ -43,26 +43,27 @@ public class Oauth2AuthorizationServer {
             clients
                     .inMemory()
                     .withClient("clientauthcode")
-                    .resourceIds(RESOURCE_ID)
-                    .authorizedGrantTypes("authorization_code", "refresh_token")
-                    .secret("123456")
-                    .scopes("read", "write")
+                        .secret("123456")
+                        .authorizedGrantTypes("authorization_code", "refresh_token")
+                        .scopes("read", "write")
+                        .resourceIds(RESOURCE_ID)
                     .and()
                     .withClient("clientapp")
-                    .authorizedGrantTypes("password")
-                    .scopes("read", "write")
-                    .resourceIds(RESOURCE_ID)
-                    .secret("123456")
+                        .secret("123456")
+                        .authorizedGrantTypes("password")
+                        .scopes("read", "write")
+                        .resourceIds(RESOURCE_ID)
                     .and()
                     .withClient("jsclient")
-                    .secret("jspasswd")
-                    .authorizedGrantTypes("implicit")
-                    .authorities("CLIENT")
-                    .scopes("read", "write")
-                    .resourceIds(RESOURCE_ID)
-                    .redirectUris("http://localhost:10001/resource-server/api/state/verify")
-                    .accessTokenValiditySeconds(60 * 60 * 24) // token berlaku seharian, besok harus login ulang
-                    .autoApprove(true);
+                        .secret("jspasswd")
+                        .authorizedGrantTypes("implicit")
+                        .scopes("read", "write")
+                        .resourceIds(RESOURCE_ID)
+                        .authorities("CLIENT")
+                        .redirectUris("http://localhost:10001/resource-server/api/state/verify")
+                        .accessTokenValiditySeconds(60 * 60 * 24) // token berlaku seharian, besok harus login ulang
+                        .autoApprove(true)
+                    ;
         }
     }
 }
