@@ -25,6 +25,15 @@ User yang tersedia :
 | endy     | 123      | admin |
 | anton    | 123      | staff |
 
+Karena ini adalah aplikasi OAuth, maka kita perlu mendaftarkan beberapa aplikasi client ke `authorization-server`. Berikut adalah daftar client, jenis akses (grant type), dan passwordnya
+
+
+| Client         | Grant Type         | Client Secret  |
+|:--------------:|:------------------:|:--------------:|
+| clientauthcode | authorization_code | 123456         |
+| clientapp      | password           | 123456         |
+| jsclient       | implicit           | jspasswd       |
+
 
 ### Authorization Server ###
 
@@ -90,6 +99,8 @@ Berikut beberapa contoh skenario dalam OAuth.
 
 ### Authorization Code ###
 
+Grant type ini digunakan untuk aplikasi client yang bisa menyimpan nilai `client secret`. Contohnya adalah aplikasi server side (PHP, Java) atau aplikasi desktop/mobile yang bisa dicompile. Nilai `client secret` bisa kita simpan sebagai variabel yang tidak bisa dilihat umum.
+
 * Jalankan aplikasi `authorization-server` dan `resource-server`
 * Buka browser, arahkan ke 
 
@@ -140,7 +151,7 @@ Berikut beberapa contoh skenario dalam OAuth.
 
 ### Flow Grant Type User Password ##
 
-* Jalankan Aplikasi : `mvn clean tomcat7:run`
+* Jalankan Aplikasi `authorization-server` dan `resource-server`
 * Akses url terproteksi tanpa login dulu
 
         curl http://localhost:10001/resource-server/api/admin 
@@ -161,6 +172,8 @@ Berikut beberapa contoh skenario dalam OAuth.
 
 
 ### Flow Grant Type Implicit ###
+
+* Jalankan aplikasi `authorization-server` dan `resource-server`
 
 * Generate random variabel `state` dulu supaya aman
 
