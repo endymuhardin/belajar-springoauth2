@@ -1,5 +1,6 @@
 package com.muhardin.endy.belajar.springoauth2.resourceserver;
 
+import com.muhardin.endy.belajar.springoauth2.filter.CORSFilter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -21,6 +22,9 @@ public class DispatcherServletConfig implements WebApplicationInitializer {
         
         sc.addFilter("springSecurityFilterChain", new DelegatingFilterProxy("springSecurityFilterChain"))
                     .addMappingForUrlPatterns(null, false, "/*");
+        
+        sc.addFilter("corsFilter", new CORSFilter())
+                .addMappingForUrlPatterns(null, false, "/*");
         
         ServletRegistration.Dynamic registration = sc.addServlet("dispatcher", new DispatcherServlet(context));
         registration.setLoadOnStartup(1);

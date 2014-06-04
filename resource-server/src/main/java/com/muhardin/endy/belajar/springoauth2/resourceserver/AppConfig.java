@@ -9,7 +9,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @ComponentScan(
     basePackages = {
-        "com.muhardin.endy.belajar.springoauth2.controller"
+        "com.muhardin.endy.belajar.springoauth2.controller",
+        "com.muhardin.endy.belajar.springoauth2.filter"
     }
 )
 @EnableWebMvc

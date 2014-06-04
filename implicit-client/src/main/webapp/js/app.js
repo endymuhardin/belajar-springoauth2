@@ -12,21 +12,47 @@ app.controller('NavCtrl', function($scope, $window){
     };
 });
 
-app.controller('OauthCtrl', function($scope, $location, $window){
+app.controller('OauthCtrl', function($scope, $location, $window, $http){
    $scope.currentUser; 
-   
    $scope.accessToken;
     
    $scope.adminApi = function(){
-       alert("Memanggil API Admin");
+       if(!$scope.accessToken) {
+           alert("Belum punya token, login dulu ya");
+           return;
+       }
+       console.log("Memanggil API Admin");
+       $http.get('http://localhost:10001/resource-server/api/admin?access_token='+$scope.accessToken)
+           .success(function(data){
+               $scope.adminOutput = data;
+            }).error(function(data, status){
+                alert("Error bos : "+status);
+                console.log(data);
+                $scope.adminOutput = data;
+            });
    }; 
    
    $scope.staffApi = function(){
-       alert("Memanggil API Staff");
+       if(!$scope.accessToken) {
+           alert("Belum punya token, login dulu ya");
+           return;
+       }
+       $http.get('http://localhost:10001/resource-server/api/staff?access_token='+$scope.accessToken)
+            .success(function(data){
+               $scope.staffOutput = data;
+            }).error(function(data, status){
+                alert("Error bos : "+status);
+                console.log(data);
+                $scope.staffOutput = data;
+            });
    }; 
    
    $scope.getTokenFromUrl = function(){
        var hashParams = $location.hash();
+       if(!hashParams) {
+           console.log("Tidak ada token di url")
+           return;
+       }
        console.log(hashParams);
        var eachParam = hashParams.split('&');
        for(var i=0; i<eachParam.length; i++){
@@ -40,4 +66,6 @@ app.controller('OauthCtrl', function($scope, $location, $window){
            $window.sessionStorage.setItem('token', $scope.accessToken);
        }
    };
+   
+   $scope.getTokenFromUrl();
 });
