@@ -20,6 +20,9 @@ public class Oauth2LogoutHandler implements LogoutSuccessHandler {
         if(token != null){
             consumerTokenServices.revokeToken(token);
         }
-        res.addHeader("Access-Control-Allow-Origin", "*");
+        String redirect = req.getParameter("redirect");
+        if(redirect != null){
+            res.sendRedirect(redirect);
+        }
     }
 }
