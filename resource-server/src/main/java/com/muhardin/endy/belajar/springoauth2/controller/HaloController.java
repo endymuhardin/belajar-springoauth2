@@ -30,6 +30,15 @@ public class HaloController {
         return hasil;
     }
     
+    @RequestMapping("/client")
+    public Map<String, Object> client(Principal user){
+        Map<String, Object> hasil = new HashMap<String, Object>();
+        hasil.put("sukses", Boolean.TRUE);
+        hasil.put("page", "client");
+        hasil.put("user", user.getName());
+        return hasil;
+    }
+    
     @RequestMapping("/staff")
     public Map<String, Object> staff(){
         Map<String, Object> hasil = new HashMap<String, Object>();

@@ -48,6 +48,7 @@ public class Oauth2ResourceServer {
         public void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
                     .antMatchers("/api/staff").hasRole("STAFF")
+                    .antMatchers("/api/client").access("#oauth2.hasScope('trust')")
                     .antMatchers("/api/admin").hasRole("ADMIN");
         }
 

@@ -217,6 +217,36 @@ Grant type ini biasanya digunakan apabila aplikasi client tidak bisa menyimpan n
         }
 
 
+### Flow Grant Type Client Credentials ###
+
+Pada flow type ini, aplikasi client diberikan akses penuh terhadap resource yang diproteksi tanpa perlu meminta username dan password user. Biasanya digunakan bila aplikasi client dan aplikasi resource server dibuat oleh perusahaan yang sama.
+
+* Jalankan aplikasi `authorization-server` dan `resource-server`
+
+* Request token ke `authorization-server` dengan memasang `client_id` dan `client_secret` pada header dengan cara Basic Authentication
+
+        curl -X POST -vu clientcred:123456 http://localhost:10000/auth-server/oauth/token -H "Accept: application/json" -d "client_id=clientcred&grant_type=client_credentials"
+
+* Kita akan mendapatkan response berupa `access_token` dalam format JSON
+
+        {
+            "access_token":"45841c94-8851-4f93-bdb1-7de9519df175",
+            "token_type":"bearer",
+            "expires_in":43199,"scope":"trust"
+        }
+
+* Gunakan access token ini dalam Authorization header untuk mengakses `resource-server`
+
+        curl -H "Authorization: Bearer 45841c94-8851-4f93-bdb1-7de9519df175" http://localhost:10001/resource-server/api/client
+
+* Sukses menghasilkan response
+
+        {
+            "sukses":true,
+            "page":"client",
+            "user":"clientcred"
+        }
+
 ## Referensi ##
 
 Server Side
