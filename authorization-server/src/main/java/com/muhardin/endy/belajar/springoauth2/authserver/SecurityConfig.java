@@ -1,5 +1,6 @@
 package com.muhardin.endy.belajar.springoauth2.authserver;
 
+import com.muhardin.endy.belajar.springoauth2.authserver.handler.Oauth2LogoutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity(debug = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired private Oauth2LogoutHandler logoutHandler;
+    
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -39,7 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .passwordParameter("j_password")
                 .and()
                     .logout()
-                    .logoutUrl("/j_spring_security_logout");
+                    .logoutUrl("/j_spring_security_logout")
+                    .logoutSuccessHandler(logoutHandler);
     }
     
     
