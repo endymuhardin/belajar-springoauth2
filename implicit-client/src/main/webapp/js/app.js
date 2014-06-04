@@ -25,6 +25,7 @@ app.controller('OauthCtrl', function($scope, $location, $window, $http){
        $http.get('http://localhost:10001/resource-server/api/admin?access_token='+$scope.accessToken)
            .success(function(data){
                $scope.adminOutput = data;
+               $scope.currentUser = data.user;
             }).error(function(data, status){
                 alert("Error bos : "+status);
                 console.log(data);
@@ -40,6 +41,7 @@ app.controller('OauthCtrl', function($scope, $location, $window, $http){
        $http.get('http://localhost:10001/resource-server/api/staff?access_token='+$scope.accessToken)
             .success(function(data){
                $scope.staffOutput = data;
+               $scope.currentUser = data.user;
             }).error(function(data, status){
                 alert("Error bos : "+status);
                 console.log(data);
@@ -50,7 +52,7 @@ app.controller('OauthCtrl', function($scope, $location, $window, $http){
    $scope.getTokenFromUrl = function(){
        var hashParams = $location.hash();
        if(!hashParams) {
-           console.log("Tidak ada token di url")
+           console.log("Tidak ada token di url");
            return;
        }
        console.log(hashParams);
