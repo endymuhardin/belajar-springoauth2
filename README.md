@@ -97,7 +97,7 @@ Aplikasi `implicit-client` bisa dijalankan dengan cara sebagai berikut:
 
 Berikut beberapa contoh skenario dalam OAuth.
 
-### Authorization Code ###
+### Flow Grant Type Authorization Code ###
 
 Grant type ini digunakan untuk aplikasi client yang bisa menyimpan nilai `client secret`. Contohnya adalah aplikasi server side (PHP, Java) atau aplikasi desktop/mobile yang bisa dicompile. Nilai `client secret` bisa kita simpan sebagai variabel yang tidak bisa dilihat umum.
 
