@@ -151,6 +151,8 @@ Grant type ini digunakan untuk aplikasi client yang bisa menyimpan nilai `client
 
 ### Flow Grant Type User Password ##
 
+Grant type ini biasanya digunakan bila pembuat aplikasi client sama dengan pembuat resource server. Sehingga aplikasi client diperbolehkan mengambil data username dan password langsung dari user. Contohnya: aplikasi Twitter android ingin mengakses daftar tweet untuk user tertentu. Walaupun demikian, penggunaan flow type ini tidak direkomendasikan lagi. Sebaiknya gunakan flow type _authorization code_ atau _client credentials_.
+
 * Jalankan Aplikasi `authorization-server` dan `resource-server`
 * Akses url terproteksi tanpa login dulu
 
@@ -172,6 +174,8 @@ Grant type ini digunakan untuk aplikasi client yang bisa menyimpan nilai `client
 
 
 ### Flow Grant Type Implicit ###
+
+Grant type ini biasanya digunakan apabila aplikasi client tidak bisa menyimpan nilai `client secret` dengan aman. Contohnya adalah aplikasi JavaScript (misalnya: AngularJS, jQuery, Backbone.js, dsb) yang source codenya bisa dilihat umum.
 
 * Jalankan aplikasi `authorization-server` dan `resource-server`
 
@@ -211,6 +215,7 @@ Grant type ini digunakan untuk aplikasi client yang bisa menyimpan nilai `client
             "aud": ["belajar"],
             "client_id": "jsclient"
         }
+
 
 ## Referensi ##
 
