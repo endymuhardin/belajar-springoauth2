@@ -14,6 +14,14 @@ Contoh kode program ini melibatkan beberapa pihak, yaitu:
 * `client-application` : aplikasi yang dihadapi user. Aplikasi ini menggunakan layanan dari `resource-server`
 * `resource-owner` : pemilik data dalam `resource-server`. Disebut juga dengan istilah `user` pada `client-application`.
 
+Pada prakteknya, ada beberapa skenario deployment yang memungkinkan:
+
+1. Authorization dan Resource Server di satu aplikasi. Untuk skenario ini, agar bisa berkoordinasi, kita bisa menggunakan InMemoryTokenStore yang digunakan bersama oleh authorization dan resource server
+2. Authorization Server pisah aplikasi (beda war) dengan Resource Server. Ada dua pilihan metode koordinasi token, yaitu:
+
+    * Remote Token Service: Authorization server menyimpan token di InMemoryTokenStore, sedangkan Resource server menggunakan akses http ke authorization server untuk mengecek validitas token. Contohnya ada [di sini](https://github.com/endymuhardin/belajar-springoauth2/blob/master/resource-server/src/main/java/com/muhardin/endy/belajar/springoauth2/resourceserver/Oauth2ResourceServer.java#L37).
+    * Sharing Database: Authorization server menyimpan token di database, dan Resource server mengakses database yang sama untuk mengecek validitas token. Skema database default yang digunakan Spring OAuth bisa dilihat [di sini](https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/token/store/JdbcTokenStore.java).
+
 ## Menjalankan Aplikasi ##
 
 Aplikasi `authorization-server`, `resource-server`, maupun `client` dijalankan masing-masing secara terpisah. Walaupun demikian, semua aplikasi ini menggunakan username/password yang sama.
