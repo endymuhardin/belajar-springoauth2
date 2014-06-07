@@ -209,6 +209,12 @@ Grant type ini biasanya digunakan apabila aplikasi client tidak bisa menyimpan n
 
         curl http://localhost:10001/resource-server/api/admin?access_token=667aadee-883c-439f-9f18-50ef77e3fad6
 
+* Selain ditaruh di request parameter, kita juga bisa memasang access token di header `Authorization` seperti ini:
+
+        curl -H "Authorization: Bearer 667aadee-883c-439f-9f18-50ef77e3fad6" http://localhost:10001/resource-server/api/admin
+    
+    Ini memudahkan kita untuk memasang `$httpInterceptor` bila kita menggunakan AngularJS.
+
 * Di belakang layar, resource server akan melakukan menanyakan validitas token ke authorization server dengan perintah seperti ini
 
         curl -X POST -vu jsclient:jspasswd http://localhost:10000/auth-server/oauth/check_token?token=667aadee-883c-439f-9f18-50ef77e3fad6
