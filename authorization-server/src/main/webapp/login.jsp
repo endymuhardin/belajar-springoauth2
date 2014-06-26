@@ -57,7 +57,10 @@
     </head>
     <body>
         <div class="container">
-
+            
+            <% if (request.getParameter("error") != null) { %>
+                Gagal Login : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+            <% } %>
             <form class="form-signin" role="form" action="j_spring_security_check" method="post">
                 <h2 class="form-signin-heading">Silahkan Login</h2>
                 <input type="text" name="j_username" class="form-control" placeholder="Username" required autofocus>
