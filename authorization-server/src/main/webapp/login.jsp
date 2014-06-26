@@ -59,7 +59,7 @@
         <div class="container">
             
             <% if (request.getParameter("error") != null) { %>
-                Gagal Login : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+            <div class="alert alert-danger">${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</div>
             <% } %>
             <form class="form-signin" role="form" action="j_spring_security_check" method="post">
                 <h2 class="form-signin-heading">Silahkan Login</h2>
