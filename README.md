@@ -20,7 +20,7 @@ Pada prakteknya, ada beberapa skenario deployment yang memungkinkan:
 2. Authorization Server pisah aplikasi (beda war) dengan Resource Server. Ada dua pilihan metode koordinasi token, yaitu:
 
     * Remote Token Service: Authorization server menyimpan token di InMemoryTokenStore, sedangkan Resource server menggunakan akses http ke authorization server untuk mengecek validitas token. Contohnya ada [di sini](https://github.com/endymuhardin/belajar-springoauth2/blob/master/resource-server/src/main/java/com/muhardin/endy/belajar/springoauth2/resourceserver/Oauth2ResourceServer.java#L37).
-    * Sharing Database: Authorization server menyimpan token di database, dan Resource server mengakses database yang sama untuk mengecek validitas token. Skema database default yang digunakan Spring OAuth bisa dilihat [di sini](https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/token/store/JdbcTokenStore.java).
+    * Sharing Database: Authorization server menyimpan token di database, dan Resource server mengakses database yang sama untuk mengecek validitas token. Skema database default yang digunakan Spring OAuth bisa dilihat [di sini](https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/test/resources/schema.sql).
 
 ## Menjalankan Aplikasi ##
 
@@ -276,6 +276,7 @@ Server Side
 * https://github.com/royclarkson/spring-rest-service-oauth
 * http://spring.io/blog/2011/11/30/cross-site-request-forgery-and-oauth2
 * https://github.com/spring-projects/spring-security-oauth/
+* https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/test/resources/schema.sql
 
 Client Side
 
