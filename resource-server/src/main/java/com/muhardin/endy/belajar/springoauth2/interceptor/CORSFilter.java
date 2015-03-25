@@ -30,7 +30,7 @@ public class CORSFilter extends HandlerInterceptorAdapter {
             return true;
         } else {
             System.out.println("Origin " + origin + " belum didaftarkan di clients.properties");
-            return false;
+            return true;
         }
     }
 }
