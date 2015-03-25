@@ -1,4 +1,4 @@
-package com.muhardin.endy.belajar.springoauth2.interceptor;
+package com.muhardin.endy.belajar.springoauth2.resourceserver.interceptor;
 
 import java.util.Arrays;
 import java.util.HashSet;

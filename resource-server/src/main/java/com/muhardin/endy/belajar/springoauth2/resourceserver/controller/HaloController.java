@@ -1,4 +1,4 @@
-package com.muhardin.endy.belajar.springoauth2.controller;
+package com.muhardin.endy.belajar.springoauth2.resourceserver.controller;
 
 import java.security.Principal;
 import java.util.HashMap;

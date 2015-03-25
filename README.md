@@ -63,7 +63,7 @@ Aplikasi `auth-server` bisa dijalankan dengan cara sebagai berikut:
 
 2. Jalankan aplikasinya
 
-        mvn clean tomcat7:run
+        mvn clean spring-boot:run
 
 3. Siap digunakan di `http://localhost:10000/auth-server`
 
@@ -83,7 +83,7 @@ Aplikasi `resource-server` bisa dijalankan dengan cara sebagai berikut:
 
 2. Jalankan aplikasinya
 
-        mvn clean tomcat7:run
+        mvn clean spring-boot:run
 
 3. Siap digunakan di `http://localhost:10001/resource-server`
 
@@ -97,7 +97,7 @@ Aplikasi `implicit-client` bisa dijalankan dengan cara sebagai berikut:
 
 2. Jalankan aplikasinya
 
-        mvn clean tomcat7:run
+        mvn clean spring-boot:run
 
 3. Siap digunakan di `http://localhost:20000/implicit-client/`
 
