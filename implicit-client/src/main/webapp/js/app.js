@@ -7,7 +7,7 @@ app.config(function($locationProvider){
 });
 
 app.controller('NavCtrl', function($scope, $window, $location, $http){
-    $scope.authUrl = 'http://localhost:10000/auth-server/oauth/authorize?client_id=jsclient&response_type=token&scope=write';
+    $scope.authUrl = 'http://localhost:10000/oauth/authorize?client_id=jsclient&response_type=token&scope=write';
     
     $scope.token;
     
@@ -72,7 +72,7 @@ app.controller('OauthCtrl', function($scope, $http, $window){
            return;
        }
        console.log("Memanggil API Admin");
-       $http.get('http://localhost:10001/resource-server/api/admin?access_token='+$scope.accessToken)
+       $http.get('http://localhost:10001/api/admin?access_token='+$scope.accessToken)
            .success(function(data){
                $scope.adminOutput = data;
                $scope.currentUser = data.user;
@@ -88,7 +88,7 @@ app.controller('OauthCtrl', function($scope, $http, $window){
            alert("Belum punya token, login dulu ya");
            return;
        }
-       $http.get('http://localhost:10001/resource-server/api/staff?access_token='+$scope.accessToken)
+       $http.get('http://localhost:10001/api/staff?access_token='+$scope.accessToken)
             .success(function(data){
                $scope.staffOutput = data;
                $scope.currentUser = data.user;
