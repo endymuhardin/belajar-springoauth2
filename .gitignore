@@ -5,3 +5,6 @@ target
 
 # Bower Ignore
 bower_components
+
+# MacOSX Ignore
+.DS_Store
