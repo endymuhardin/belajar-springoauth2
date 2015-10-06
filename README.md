@@ -174,6 +174,10 @@ Grant type ini digunakan untuk aplikasi client yang bisa menyimpan nilai `client
             "expires_in":43199,"scope":"write read"
         }
 
+* Flow tersebut bisa digambarkan sebagai berikut
+
+![Flow Auth Code](./img/flow-oauth2-authcode.jpg)
+
 ### Flow Grant Type User Password ##
 
 Grant type ini biasanya digunakan bila pembuat aplikasi client sama dengan pembuat resource server. Sehingga aplikasi client diperbolehkan mengambil data username dan password langsung dari user. Contohnya: aplikasi Twitter android ingin mengakses daftar tweet untuk user tertentu. Walaupun demikian, penggunaan flow type ini tidak direkomendasikan lagi. Sebaiknya gunakan flow type _authorization code_ atau _client credentials_.
