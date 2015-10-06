@@ -140,6 +140,23 @@ Grant type ini digunakan untuk aplikasi client yang bisa menyimpan nilai `client
 
         curl http://localhost:10001/resource-server/api/admin?access_token=08664d93-41e3-473c-b5d2-f2b30afe7053
 
+* Resource server mengecek ke authorization server apakah token tersebut valid atau tidak dengan HTTP request seperti ini
+
+        curl -X POST -vu clientauthcode:123456 http://localhost:10000/auth-server/oauth/check_token?token=08664d93-41e3-473c-b5d2-f2b30afe7053
+
+* Authorization server akan membalas request check token dengan response seperti ini
+
+
+        {
+            "aud": ["belajar"],
+            "exp": 1444158090,
+            "user_name": "endy",
+            "authorities": ["ROLE_OPERATOR", "ROLE_SUPERVISOR"],
+            "client_id": "clientauthcode",
+            "scope": ["read", "write"]
+        }
+
+
 * Resource server akan memberikan data yang diminta karena tokennya cocok
 
         {"sukses":true,"page":"admin","user":"endy"}
