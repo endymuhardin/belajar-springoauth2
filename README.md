@@ -103,7 +103,20 @@ Aplikasi `implicit-client` bisa dijalankan dengan cara sebagai berikut:
 
 ## Contoh Kasus ##
 
-Berikut beberapa contoh skenario dalam OAuth.
+OAuth memiliki beberapa grant type, yaitu:
+
+* Authorization Code
+* Implicit
+* User Password
+* Client Credentials
+
+Flow `authorization code` digunakan bila kita ingin memverifikasi identitas aplikasi client. Ini biasa digunakan apabila aplikasi clientnya bisa menyimpan `client secret` dengan aman, misalnya pada aplikasi web server side (PHP, Java, NodeJS, Python, Ruby, dsb). Dalam flow ini, setelah user login, dia akan mendapatkan `authorization code`. `Authorization code` ini diserahkan kepada aplikasi client, untuk kemudian ditukarkan dengan `access token`. Untuk selanjutnya, aplikasi client mengakses `resource server` dengan membawa `access token`. Pada flow ini, `access token` sama sekali tidak dikirim ke user, sehingga meminimasi potensi kebocoran antara user dan aplikasi client.
+
+Flow `implicit` digunakan bila kita tidak bisa atau tidak perlu memverifikasi aplikasi client. Ini biasanya terjadi bila aplikasi clientnya bisa diunduh dan diakses secara bebas, misalnya aplikasi berbasis JavaScript client side (jQuery, AngularJS, EmberJS, Vue.js, dsb) ataupun aplikasi mobile (Android, iOS). Karena aplikasi clientnya bertebaran tanpa kontrol, maka tidak perlu diverifikasi, tidak ada manfaatnya. Dengan demikian, dalam flow ini setelah login user langsung diberikan `access token` untuk selanjutnya digunakan untuk mengakses resource server. Resiko keamanannya lebih tinggi, karena `access token` dibawa setiap kali melakukan request, dimana koneksi antara user dan resource server lebih sulit diamankan (misalnya di public wifi).
+
+Flow `user password` digunakan apabila aplikasi client 100% terpercaya, misalnya aplikasi mobile yang dibuat sendiri. Dengan demikian, kita bisa mengijinkan aplikasi client untuk langsung meminta username dan password user.
+
+Flow `client credential` sama sekali tidak melibatkan user. Ini digunakan untuk mengamankan koneksi dari aplikasi ke aplikasi. Misalnya aplikasi client ingin mengakses fitur umum dari resource server yang tidak berkaitan dengan user tertentu (misalnya jumlah semua user). Konsekuensinya, dengan flow ini kita tidak bisa membatasi akses spesifik ke satu user tertentu.
 
 ### Flow Grant Type Authorization Code ###
 
@@ -284,8 +297,18 @@ Pada flow type ini, aplikasi client diberikan akses penuh terhadap resource yang
 
 ## Referensi ##
 
+Konsep OAuth
+
+* https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
+* http://tutorials.jenkov.com/oauth2/index.html
+* https://aaronparecki.com/2012/07/29/2/oauth2-simplified
+* http://www.bubblecode.net/en/2016/01/22/understanding-oauth2/
+* http://stackoverflow.com/questions/16321455/what-is-the-difference-between-the-2-workflows-when-to-use-authorization-code-f
+* http://oauth2.thephpleague.com/authorization-server/which-grant/
+
 Server Side
 
+* https://spring.io/guides/tutorials/spring-security-and-angular-js/
 * http://tools.ietf.org/id/draft-ietf-oauth-v2-31.html
 * http://techblog.hybris.com/2012/06/01/oauth2-authorization-code-flow/
 * http://techblog.hybris.com/2012/06/05/oauth2-refreshing-an-expired-access-token/
@@ -307,3 +330,4 @@ Client Side
 * https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/
 * https://developers.google.com/accounts/docs/OAuth2UserAgent
 * http://beletsky.net/2013/11/simple-authentication-in-angular-dot-js-app.html
+* http://techblog.constantcontact.com/software-development/implementing-oauth2-0-in-an-android-app/
