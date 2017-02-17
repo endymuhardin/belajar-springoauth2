@@ -273,7 +273,7 @@ Pada flow type ini, aplikasi client diberikan akses penuh terhadap resource yang
 
 * Request token ke `authorization-server` dengan memasang `client_id` dan `client_secret` pada header dengan cara Basic Authentication
 
-        curl -X POST -vu clientcred:123456 http://localhost:10000/oauth/token -H "Accept: application/json" -d "client_id=clientcred&grant_type=client_credentials"
+        curl -X POST -vu clientcred:123456 http://localhost:10000/oauth/token -H "Accept: application/json" -d "grant_type=client_credentials"
 
 * Kita akan mendapatkan response berupa `access_token` dalam format JSON
 
